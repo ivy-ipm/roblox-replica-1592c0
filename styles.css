@@ -1,0 +1,466 @@
+:root {
+    --roblox-blue: #007bff;
+    --roblox-dark-blue: #015dbd;
+    --roblox-gray: #343a40;
+    --roblox-light-gray: #f8f9fa;
+    --text-color: #dee2e6;
+    --link-hover-color: #ffffff;
+    --sidebar-bg: #212529;
+    --main-bg: #1a1d21;
+    --card-bg: #2c3034;
+    --button-primary: #00a2ff;
+    --button-primary-hover: #0087d9;
+    --button-secondary: #495057;
+    --button-secondary-hover: #6c757d;
+    --online-status: #28a745;
+    --offline-status: #6c757d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: var(--main-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: var(--link-hover-color);
+    margin-bottom: 1rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--roblox-gray);
+    padding: 0.8rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-left, .navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 35px;
+    margin-right: 1.5rem;
+}
+
+.nav-item {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-right: 1.5rem;
+    font-weight: 700;
+    font-size: 1.05rem;
+    transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+    color: var(--link-hover-color);
+}
+
+.search-input {
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    margin-right: 1rem;
+    width: 200px;
+    transition: background-color 0.3s ease;
+}
+
+.search-input::placeholder {
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.search-input:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-button {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-button.login {
+    background-color: var(--button-secondary);
+    color: var(--link-hover-color);
+    margin-right: 0.7rem;
+}
+
+.nav-button.login:hover {
+    background-color: var(--button-secondary-hover);
+    transform: translateY(-2px);
+}
+
+.nav-button.signup {
+    background-color: var(--button-primary);
+    color: var(--link-hover-color);
+}
+
+.nav-button.signup:hover {
+    background-color: var(--button-primary-hover);
+    transform: translateY(-2px);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+}
+
+.sidebar {
+    background-color: var(--sidebar-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    height: fit-content;
+    position: sticky;
+    top: 90px; /* Adjust based on navbar height */
+}
+
+.sidebar-nav {
+    margin-bottom: 2rem;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-item img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    filter: invert(100%); /* Make icons white */
+}
+
+.sidebar-item:hover, .sidebar-item.active {
+    background-color: rgba(var(--roblox-blue), 0.3);
+    color: var(--link-hover-color);
+}
+
+.sidebar-item.active {
+    border-left: 3px solid var(--roblox-blue);
+    padding-left: calc(1rem - 3px);
+}
+
+.friends-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--link-hover-color);
+}
+
+.friend-list {
+    list-style: none;
+}
+
+.friend-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.7rem;
+    color: var(--text-color);
+}
+
+.status {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.status.online {
+    background-color: var(--online-status);
+}
+
+.status.offline {
+    background-color: var(--offline-status);
+}
+
+.main-content {
+    background-color: var(--sidebar-bg);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.hero {
+    text-align: center;
+    padding: 3rem 0;
+    background: linear-gradient(135deg, var(--roblox-dark-blue), var(--roblox-blue));
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--link-hover-color);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.play-button {
+    background-color: var(--button-primary);
+    color: var(--link-hover-color);
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.play-button:hover {
+    background-color: var(--button-primary-hover);
+    transform: translateY(-3px);
+}
+
+.game-categories h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--link-hover-color);
+    border-bottom: 2px solid rgba(var(--roblox-blue), 0.5);
+    padding-bottom: 0.5rem;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.game-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.game-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+}
+
+.game-card h3 {
+    font-size: 1.2rem;
+    margin: 1rem 1rem 0.5rem;
+    color: var(--link-hover-color);
+}
+
+.game-card p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin: 0 1rem 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 200px 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .sidebar {
+        padding: 1rem;
+    }
+
+    .sidebar-item {
+        font-size: 0.95rem;
+        padding: 0.7rem 0.8rem;
+    }
+
+    .main-content {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .navbar-left {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .navbar-right {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .logo {
+        margin-right: 1rem;
+    }
+
+    .nav-item {
+        margin-right: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .search-input {
+        width: 150px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .sidebar-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .sidebar-item {
+        width: auto;
+        margin: 0.3rem;
+    }
+
+    .friends-section {
+        text-align: center;
+    }
+
+    .friend-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .friend-list li {
+        margin: 0.5rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .play-button {
+        padding: 0.8rem 2rem;
+        font-size: 1.1rem;
+    }
+
+    .game-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.8rem;
+    }
+
+    .navbar-left, .navbar-right {
+        flex-direction: column;
+        margin-bottom: 0.5rem;
+    }
+
+    .nav-item {
+        margin: 0.5rem 0.7rem;
+    }
+
+    .search-input {
+        width: 90%;
+        margin-bottom: 0.7rem;
+    }
+
+    .nav-button {
+        width: 90%;
+        margin-bottom: 0.5rem;
+    }
+    .nav-button.login {
+        margin-right: 0;
+    }
+
+    .logo {
+        height: 30px;
+        margin-bottom: 0.5rem;
+        margin-right: 0;
+    }
+
+    .sidebar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar-item {
+        width: 90%;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .game-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .game-card {
+        margin: 0 auto;
+        max-width: 300px;
+    }
+}
